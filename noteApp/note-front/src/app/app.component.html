@@ -1,0 +1,18 @@
+
+<div class="notes-container">
+  <div class="left-notes-container notes-column">
+    @for (note of notes1; track $index) {
+    <app-note class="note" (buttonClicked)="clickedANote($event)"
+      [zIndex]="$index*2" [title]="note.title"></app-note>
+    }
+  </div>
+  <div class="left-notes-container notes-column">
+    @for (note of notes2; track $index) {
+    <app-note class="note" (buttonClicked)="clickedANote($event)"
+      [zIndex]="($index*2) + 1" [title]="note.title"></app-note>
+    }
+  </div>
+</div>
+<div class="not-notes-container">
+  <app-big-note class="big-note" (buttonClicked)="onNewNoteCreation()" class="big-note" [noteData]="bigNote"></app-big-note>
+</div>

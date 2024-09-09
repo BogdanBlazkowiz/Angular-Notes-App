@@ -1,0 +1,5 @@
+Title: <input [value]="noteData.title" [formControl]="titleControl">
+Description: <textarea [value]="noteData.desc" [formControl]="descriptionControl"></textarea>
+<button (click)="handleFormClick(noteData.id, 'submit')">{{ buttonTitle }}</button>
+<button (click)="handleFormClick(noteData.id, 'delete')" [hidden]="!isEditing">Delete</button>
+<button (click)="handleFormClick('', 'new')" [hidden]="!isEditing">Make new note</button>
