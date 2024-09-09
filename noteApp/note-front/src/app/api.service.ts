@@ -11,7 +11,7 @@ export class ApiService {
   apiUrl: string = "https://angular-notes-app-2tbx.onrender.com/"
   getMessage() {
     return this.http.get(
-      'http://localhost:3000/api/get-notes');
+      apiUrl + 'api/get-notes');
   }
   postMessage(body: {title: string | null, description: string | null}) {
     return this.http.post(this.apiUrl + 'api/new-note', body, {
