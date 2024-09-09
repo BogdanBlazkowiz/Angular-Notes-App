@@ -16,6 +16,7 @@ mongoose.connect(url);
 
 
 app.get("/api/get-notes", async (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'https://angular-notes-app-1.onrender.com/');
     res.json(await Note.find());
 });
 
@@ -25,6 +26,7 @@ app.post("/api/new-note", async (req, res) => {
             title: req.body.title,
             description: req.body.description,
         });
+	res.set('Access-Control-Allow-Origin', 'https://angular-notes-app-1.onrender.com/');
         res.json(newNote);
     } catch (err) {
         console.log(err);
@@ -33,11 +35,13 @@ app.post("/api/new-note", async (req, res) => {
 
 app.delete("/api/delete/:id", async (req, res) => {
     await Note.findByIdAndDelete(req.params.id);
+    res.set('Access-Control-Allow-Origin', 'https://angular-notes-app-1.onrender.com/');
     res.json("Deleted succesfully");
 });
 
 app.put("/api/update/:id", async (req, res) => {
     await Note.findByIdAndUpdate(req.params.id, req.body);
+    res.set('Access-Control-Allow-Origin', 'https://angular-notes-app-1.onrender.com/');
     res.json("Updated succesfully");
 });
 
