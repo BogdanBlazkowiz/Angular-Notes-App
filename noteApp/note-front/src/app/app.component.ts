@@ -31,7 +31,6 @@ export class AppComponent {
       this.notes1 = []
       this.notes2 = []
       for (let i = 0; i < this.notes.length; i++) {
-        console.log(this.notes[i])
         if (i%2 === 0) {
           this.notes1.push(this.notes[i])
         }
